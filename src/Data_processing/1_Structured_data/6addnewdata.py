@@ -11,7 +11,7 @@ data = pd.read_csv('./data/22_shizuoka_all_20210331.csv', encoding='shift-jis')
 # 差分データ読み込み
 diff_files = glob('data/diff*.csv')
 diff_files
-#　ソート
+# ソート
 diff_files.sort()
 diff = pd.read_csv(
     diff_files[0], encoding='shift-jis', header=None, dtype=object)
@@ -39,4 +39,23 @@ print(len(diff))
 data_test = pd.concat([data, diff])
 print(len(data_test))
 data_test.tail(3)
-# %%
+
+for f in diff_files:
+    diff = pd.read_csv(f, encoding='shift-jis', header=None, dtype=object)
+    diff.columns = columns
+    diff = diff.loc[diff['prefectureName'] == '静岡県']
+    data = pd.concat([data, diff])
+
+'重複しているデータがある'
+data.describe()
+
+'重複を確認'
+data[data["corporateNumber"].duplicated()]
+
+data.drop_duplicates(subset='corporateNumber', keep='last', inplace=True)
+
+'重複しているデータがなくなった'
+data.describe()
+
+'欠損値確認'
+data.isna().sum()
