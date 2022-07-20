@@ -133,5 +133,5 @@ plt.figure(figsize=(10, 15))
 x = tmp.index
 y = tmp.values
 # グラフ描画
-plt.bar(x, y)
+plt.barh(x, y)
 # %%
