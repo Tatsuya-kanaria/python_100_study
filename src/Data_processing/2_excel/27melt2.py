@@ -21,7 +21,7 @@ for i in col_data.columns:
     if i < col_data.columns.max():
         col_data[i + 1].fillna(col_data[i], inplace=True)
 
-# 正規表現　〔〕取り除く
+# 正規表現 〔〕取り除く
 col_data.replace('^\〔(.+?)\〕$', r'\1', regex=True, inplace=True)
 
 cols = []
@@ -84,7 +84,6 @@ datas_v = pd.melt(datas,
                   id_vars=["都道府県", "年月"],
                   var_name="変数名", value_name="値")
 
-# 変数名を’_’で区切り
 var_data = datas_v['変数名'].str.split('_', expand=True)
 var_data.columns = ['発電所種別', '発電種別', '項目']
 datas_v = pd.concat([datas_v, var_data], axis=1)
