@@ -1,12 +1,7 @@
 # %%
 from glob import glob
-from re import X
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
 import datetime as dt
-
-from zmq import Frame
 
 
 files = glob('./data/person_count_1sec/out_0001/*.csv')

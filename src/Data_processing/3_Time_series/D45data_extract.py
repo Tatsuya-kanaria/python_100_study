@@ -1,8 +1,6 @@
 # %%
 from glob import glob
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
 import datetime as dt
 
 

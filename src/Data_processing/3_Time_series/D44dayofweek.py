@@ -1,8 +1,6 @@
 # %%
 from glob import glob
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
 
 
 files = glob('./data/person_count_1sec/out_0001/*.csv')
