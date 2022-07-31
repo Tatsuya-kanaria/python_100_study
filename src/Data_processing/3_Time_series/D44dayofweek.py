@@ -17,26 +17,21 @@ for f in files:
     data.append(tmp)
 data = pd.concat(data, ignore_index=True)
 
-# display(data.head())
-# len(data)
 
-# 経過日数の確認
-# min_receive_time = data['receive_time'].min()
-# max_receive_time = data['receive_time'].max()
-# print("min:", min_receive_time)
-# print("max:", max_receive_time)
-# print("progress:", max_receive_time - min_receive_time)
-
-# dt.year, dt.hour
+# dt.date 年月日
 data['receive_date'] = data['receive_time'].dt.date
-
 
 daily_count = data[['receive_date', 'id']].groupby(
     'receive_date', as_index=False).count()
-daily_count.head()
 
-plt.figure(figsize=(15, 5))
-plt.xticks(rotation=90)
-sns.barplot(x=daily_count['receive_date'], y=daily_count["id"])
+# dt.dayofweek 曜日
+data['dayofweek'] = data['receive_time'].dt.dayofweek
+
+# dt.day_name() 曜日名
+data['day_name'] = data['receive_time'].dt.day_name()
+data.head()
+
+data[['receive_date', 'dayofweek', 'day_name']
+     ].drop_duplicates(subset='receive_date').head(10)
 
 # %%
