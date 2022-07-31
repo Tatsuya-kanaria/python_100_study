@@ -3,6 +3,7 @@ from glob import glob
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import datetime as dt
 
 
 files = glob('./data/person_count_1sec/out_0001/*.csv')
@@ -35,5 +36,11 @@ data.head()
 data[['receive_date',
       'dayofweek',
       'day_name']].drop_duplicates(subset='receive_date').head(10)
+
+data_extract = data.loc[(data['receive_time'] >= dt.datetime(2021, 1, 20)) & (
+    data['receive_time'] < dt.datetime(2021, 1, 23))].copy()
+
+display(data_extract.head())
+display(data_extract.tail())
 
 # %%
