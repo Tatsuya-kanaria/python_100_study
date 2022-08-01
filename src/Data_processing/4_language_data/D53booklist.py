@@ -49,7 +49,7 @@ booklist = pd.DataFrame([[title, author, release_date, update_date, D52.body]], 
                         'update_date',
                         'body'])
 
-if __main__ == '__main__':
+if __name__ == '__main__':
     booklist
 
 

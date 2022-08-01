@@ -24,6 +24,8 @@ columns = ['表層形', '品詞', '品詞細分類1', '品詞細分類2',
 
 mecab_df = pd.DataFrame(data=values, columns=columns)
 print(len(mecab_df))
-mecab_df.head(4)
+
+if __name__ == '__main__':
+    mecab_df.head(4)
 
 # %%
