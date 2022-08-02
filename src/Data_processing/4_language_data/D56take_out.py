@@ -12,6 +12,6 @@ noun = mecab_df.loc[mecab_df['品詞'] == '名詞']
 # noun
 
 verb = mecab_df.loc[(mecab_df['品詞'] == '名詞') | (mecab_df['品詞'] == '動詞')]
-verb
+
 
 # %%
