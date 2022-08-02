@@ -23,9 +23,10 @@ columns = ['表層形', '品詞', '品詞細分類1', '品詞細分類2',
            '品詞細分類3', '活用型', '活用形', '原形', '読み', '発音']
 
 mecab_df = pd.DataFrame(data=values, columns=columns)
-print(len(mecab_df))
+
 
 if __name__ == '__main__':
+    print(len(mecab_df))
     mecab_df.head(4)
 
 # %%
