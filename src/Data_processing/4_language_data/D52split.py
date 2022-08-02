@@ -22,5 +22,6 @@ body = re.match(pattern, content).group(1)
 # body = body.replace(置き換えたい文字列, 置き換え後の文字列)
 body = re.sub(replace_pattern, '', body)
 
-body
+if __name__ == '__main__':
+    body
 # %%
