@@ -1,9 +1,13 @@
+
 # %%
 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
+from scipy import stats
 import seaborn as sns
 import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
 
 # データの読み込み
 dataset = sns.load_dataset('titanic')
@@ -46,5 +50,49 @@ mx = q3 + 1.5 * iqr
 mn = q1 - 1.5 * iqr
 # 外れ値の数
 ((train_ds > mx) | (train_ds < mn)).sum()
+
+# 基本統計量確認
+train_ds.describe()
+
+fig, axes = plt.subplots(ncols=4, figsize=(20, 5))
+
+axes[0].hist(train_ds.age)
+axes[1].hist(train_ds.sibsp)
+axes[2].hist(train_ds.parch)
+axes[3].hist(train_ds.fare)
+
+# カラム四つめまでを辞書にする
+def create_dict(arg_df):
+    # {colum: {bins, bin_edges}}
+    dict_ = {}
+    base_df = arg_df.copy()
+    for col_name in base_df.columns[:4]:
+        df = base_df[col_name]
+
+        bins, bin_edges = np.histogram(df.dropna(), bins="auto")
+
+        keys = ['bins', 'bin_edges']
+        values = [bins, bin_edges]
+
+        dict_.update({col_name: dict(zip(keys, values))})
+    return dict_
+
+bins_dict = create_dict(train_ds)
+
+for name, item in bins_dict.items():
+    # print(name, item['bins'])
+    stat, p = stats.chisquare(item['bins'])
+
+    f1 = f'χ二乗検定のp値: {p}'
+    result1 = f'一様性がある' if p >= 0.05 else f'一様性はない'
+    # p >= 0.05 ではないので一様性はない
+
+    stat, p = stats.shapiro(item['bins'])
+    f2 = f'シャピロウィルク検定のp値: {p}'
+    result2 = f'正規性がある' if p >= 0.05 else f'正規性はない'  # p >= 0.05 なので、正規性がある
+
+    if __name__ == '__main__':
+        print(name, f1, result1, f2, result2, sep='\n')
+
 
 # %%
