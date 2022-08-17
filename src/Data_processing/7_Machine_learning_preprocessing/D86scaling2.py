@@ -115,4 +115,5 @@ if __name__ == '__main__':
     for i, col_name in enumerate(cols_name):
         axes2[i].hist(train_ds[col_name])
 
+
 # %%
