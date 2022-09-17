@@ -2,6 +2,7 @@
 import pandas as pd
 
 import D11read_csv as D11
+import D13shaking_tally
 import D14shake_correction as D14
 import D16kokyaku_shake as D16
 import D17date_shake as D17
