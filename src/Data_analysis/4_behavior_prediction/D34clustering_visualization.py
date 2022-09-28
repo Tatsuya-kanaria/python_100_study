@@ -9,9 +9,12 @@ import matplotlib.pyplot as plt
 
 
 X = D32.customer_clustering_sc
+# モデルの定義
 pca = PCA(n_components=2)
+# 主成分分析
 pca.fit(X)
 x_pca = pca.transform(X)
+# df内の0と1の意味
 pca_df = pd.DataFrame(x_pca)
 pca_df["cluster"] = D32.customer_clustering["cluster"]
 
