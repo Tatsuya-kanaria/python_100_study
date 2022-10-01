@@ -30,5 +30,5 @@ for i in range(6, len(year_months)):
 predict_data = predict_data.dropna()
 predict_data = predict_data.reset_index(drop=True)
 predict_data.head()
-
+uselog_months.head()
 # %%
