@@ -28,4 +28,5 @@ for i in range(len(df_supply.columns)):
     else:
         print("供給限界を超過しています。輸送ルートを再計算してください。")
 
+
 # %%
