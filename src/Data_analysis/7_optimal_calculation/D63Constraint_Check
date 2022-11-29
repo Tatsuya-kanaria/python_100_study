@@ -32,6 +32,7 @@ def condition_supply(df_tr, df_supply):
             flag[i] = 1
     return flag
 
+
 print(D61.df_tr_sol)
 
 print("需要条件計算結果:" + str(condition_demand(D61.df_tr_sol, df_demand)))
