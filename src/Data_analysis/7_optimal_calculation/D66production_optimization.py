@@ -21,7 +21,9 @@ m.solve()
 df_plan_sol = D64.df_plan.copy()
 for k, x in v1.items():
     df_plan_sol.iloc[k] = value(x)
-print(df_plan_sol)
-print("総利益: " + str(value(m.objective)))
+
+if __name__ == '__main__':
+    print(df_plan_sol)
+    print("総利益: " + str(value(m.objective)))
 
 # %%
