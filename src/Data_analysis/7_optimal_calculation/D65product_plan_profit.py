@@ -10,6 +10,7 @@ def product_plan(df_profit, df_plan):
     return profit
 
 
-print("総利益: " + str(product_plan(D64.df_profit, D64.df_plan)))
+if __name__ == '__main__':
+    print("総利益: " + str(product_plan(D64.df_profit, D64.df_plan)))
 
 # %%
