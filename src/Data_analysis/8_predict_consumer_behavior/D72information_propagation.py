@@ -26,7 +26,7 @@ def simulate_percolation(num, list_active, percent_percolation):
 
 
 percent_percolation = 0.1
-T_NUM = 100
+T_NUM = 36
 NUM = len(D71.df_links.index)
 list_active = np.zeros(NUM)
 list_active[0] = 1
@@ -48,19 +48,20 @@ def active_node_coloring(list_active):
     return list_color
 
 
-t = 0
-nx.draw_networkx(D71.G, font_color="w",
-                 node_color=active_node_coloring(list_timeSeries[t]))
-plt.show()
+if __name__ == "__main__":
+    t = 0
+    nx.draw_networkx(D71.G, font_color="w",
+                     node_color=active_node_coloring(list_timeSeries[t]))
+    plt.show()
 
-t = 10
-nx.draw_networkx(D71.G, font_color="w",
-                 node_color=active_node_coloring(list_timeSeries[t]))
-plt.show()
+    t = 11
+    nx.draw_networkx(D71.G, font_color="w",
+                     node_color=active_node_coloring(list_timeSeries[t]))
+    plt.show()
 
-t = 99
-nx.draw_networkx(D71.G, font_color="w",
-                 node_color=active_node_coloring(list_timeSeries[t]))
-plt.show()
+    t = 35
+    nx.draw_networkx(D71.G, font_color="w",
+                     node_color=active_node_coloring(list_timeSeries[t]))
+    plt.show()
 
 # %%

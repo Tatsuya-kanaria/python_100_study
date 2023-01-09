@@ -36,28 +36,29 @@ for _ in range(T_NUM):
         NUM, list_active, percent_percolation, percent_disapparence, D71.df_links)
     list_timeSeries.append(list_active.copy())
 
-# 時系列グラフを描く
-list_timeSeries_num = []
-for i in range(len(list_timeSeries)):
-    list_timeSeries_num.append(sum(list_timeSeries[i]))
+if __name__ == '__main__':
+    # 時系列グラフを描く
+    list_timeSeries_num = []
+    for i in range(len(list_timeSeries)):
+        list_timeSeries_num.append(sum(list_timeSeries[i]))
 
-plt.plot(list_timeSeries_num)
-plt.show()
+    plt.plot(list_timeSeries_num)
+    plt.show()
 
-percent_disapparence = 0.2
-list_active = np.zeros(NUM)
-list_active[0] = 1
-list_timeSeries = []
-for _ in range(T_NUM):
-    list_active = simulate_population(
-        NUM, list_active, percent_percolation, percent_disapparence, D71.df_links)
-    list_timeSeries.append(list_active.copy())
+    percent_disapparence = 0.2
+    list_active = np.zeros(NUM)
+    list_active[0] = 1
+    list_timeSeries = []
+    for _ in range(T_NUM):
+        list_active = simulate_population(
+            NUM, list_active, percent_percolation, percent_disapparence, D71.df_links)
+        list_timeSeries.append(list_active.copy())
 
-list_timeSeries_num = []
-for i in range(len(list_timeSeries)):
-    list_timeSeries_num.append(sum(list_timeSeries[i]))
+    list_timeSeries_num = []
+    for i in range(len(list_timeSeries)):
+        list_timeSeries_num.append(sum(list_timeSeries[i]))
 
-plt.plot(list_timeSeries_num)
-plt.show()
+    plt.plot(list_timeSeries_num)
+    plt.show()
 
 # %%
