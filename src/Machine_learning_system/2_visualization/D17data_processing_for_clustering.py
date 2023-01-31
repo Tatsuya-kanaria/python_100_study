@@ -8,11 +8,14 @@ store_clustering = D13.analyze_data.groupby('store_id').agg(
     ['size', 'mean', 'median', 'max', 'min'])['total_amount']
 
 store_clustering.reset_index(inplace=True, drop=True)
-print(len(store_clustering))
+if __name__ == '__main__':
+    print(len(store_clustering))
 
 store_clustering.head()
 
-# kind : グラフの種類 kde:密度
-hexbin = sns.jointplot(x='mean', y='size', data=store_clustering, kind='hex')
+if __name__ == '__main__':
+    # kind : グラフの種類 kde:密度
+    hexbin = sns.jointplot(
+        x='mean', y='size', data=store_clustering, kind='hex')
 
 # %%
