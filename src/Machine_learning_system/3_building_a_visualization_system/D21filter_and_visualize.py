@@ -56,3 +56,4 @@ dropdown2.observe(graph_by_store, names='value')
 display(dropdown2)
 
 # %%
+
