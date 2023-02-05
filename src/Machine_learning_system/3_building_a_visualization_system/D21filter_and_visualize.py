@@ -4,7 +4,7 @@ from IPython.display import display, clear_output
 import japanize_matplotlib
 import matplotlib.pyplot as plt
 import pandas as pd
-%matplotlib inline
+# %matplotlib inline
 
 m_store = pd.read_csv('./data/m_store.csv')
 m_area = pd.read_csv('./data/m_area.csv')
@@ -56,4 +56,3 @@ dropdown2.observe(graph_by_store, names='value')
 display(dropdown2)
 
 # %%
-
