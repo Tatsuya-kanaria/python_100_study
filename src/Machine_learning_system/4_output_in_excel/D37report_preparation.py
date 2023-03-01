@@ -79,8 +79,8 @@ def get_area_delivery(trg_id):
         area_delivery['order_accept_date'])
     area_delivery['delivered_datetime'] = pd.to_datetime(
         area_delivery['delivered_date'])
-    area_delivery['delta'] = pd.to_datetime(
-        area_delivery[['order_accept_datetime', 'delivered_datetime']].apply(calc_delta, axis=1))
+    area_delivery['delta'] = area_delivery[[
+        'order_accept_datetime', 'delivered_datetime']].apply(calc_delta, axis=1)
 
     return area_delivery
 
@@ -103,4 +103,4 @@ def check_store_delivery_rank(trg_id):
 
     return tmp[0]
 
-    # %%
+# %%
