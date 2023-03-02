@@ -70,7 +70,7 @@ def make_data_sheet(trg_id, trg_st_df, targetfolder):
         False
     )
 
-    filename = os.path.join(targetfolder, f'./output/{store_title}.xlsx')
+    filename = os.path.join(targetfolder, f'{store_title}.xlsx')
 
     wb.save(filename)
     wb.close()
