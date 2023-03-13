@@ -80,7 +80,7 @@ def make_report_store(target_data, target_id, output_folder):
     cell.font = Font(bold=True, color='008080', size=20)
 
     cell = ws.cell(3, 2)
-    cell.value = f'`{max_str_date}月度 売上総額'
+    cell.value = f'{max_str_date}月度 売上総額'
     cell.font = Font(bold=True, color='008080', size=20)
 
     cell = ws.cell(3, 6)
