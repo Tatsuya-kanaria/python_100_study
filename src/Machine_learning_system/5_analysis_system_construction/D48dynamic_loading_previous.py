@@ -1,6 +1,6 @@
 # %%
 from D41basic_folder_generation import output_dir
-from D42check_mechanism import m_store, max_str_date
+from D42check_mechanism import m_store
 from D43headquarters_reportiong_function import get_rank_df, get_cancel_rank_df, data_export
 from D44stores_reporting_function import get_store_rank, get_store_sale, get_store_cancel_rank, get_store_cancel_count, get_delivery_rank_df, get_delivery_rank_store
 
@@ -42,7 +42,7 @@ def make_report_hq_r2(target_data_list, output_folder):
         cell.font = Font(bold=True, color='008080', size=20)
 
         cell = ws.cell(3, 2)
-        cell.value = f'{max_str_date}月度 サマリーレポート'
+        cell.value = f'{trg_date}月度 サマリーレポート'
         cell.font = Font(bold=True, color='008080', size=20)
 
         cell = ws.cell(3, 6)
@@ -69,7 +69,7 @@ def make_report_hq_r2(target_data_list, output_folder):
     wb.remove(wb.worksheets[0])
 
     # DFループが終わったらブックを保存
-    wb.save(os.path.join(output_folder, f'report_hq_{max_str_date}.xlsx'))
+    wb.save(os.path.join(output_folder, f'report_hq_{trg_date}.xlsx'))
     wb.close()
 
 # 店舗向けレポーティングデータ処理
@@ -106,11 +106,11 @@ def make_report_store_r2(target_data_list, target_id, output_folder):
 
         # Excel出力処理
         cell = ws.cell(1, 1)
-        cell.value = f'{store_name} {max_str_date}月度 サマリーレポート'
+        cell.value = f'{store_name} {trg_date}月度 サマリーレポート'
         cell.font = Font(bold=True, color='008080', size=20)
 
         cell = ws.cell(3, 2)
-        cell.value = f'{max_str_date}月度 売上総額'
+        cell.value = f'{trg_date}月度 売上総額'
         cell.font = Font(bold=True, color='008080', size=20)
 
         cell = ws.cell(3, 6)
