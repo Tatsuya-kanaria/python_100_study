@@ -82,7 +82,7 @@ def data_processing(order_data):
     store_time = pd.concat(store_time, axis=1)
 
     store_delta = order_data.loc[(order_data['status_name'] != 'キャンセル')].groupby([
-        'store_name']).mean()[['delta']]
+        'store_name']).mean(numeric_only=True)[['delta']]
     store_data.columns = ['order']
     store_f.columns = ['order_fin']
     store_c.columns = ['order_cancel']
