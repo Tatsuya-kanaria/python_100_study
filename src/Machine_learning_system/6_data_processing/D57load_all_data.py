@@ -21,6 +21,8 @@ store_all = pd.concat(store_all, ignore_index=True)
 display(store_all.head(3))
 display(store_all.tail(3))
 store_monthly_name = 'store_monthly_data.csv'
-store_all.to_csv(os.path.join(output_dir, store_monthly_name), index=False)
+
+if __name__ == '__main__':
+    store_all.to_csv(os.path.join(output_dir, store_monthly_name), index=False)
 
 # %%
