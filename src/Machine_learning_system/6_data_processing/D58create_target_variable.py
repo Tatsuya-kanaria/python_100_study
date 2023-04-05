@@ -41,7 +41,7 @@ y = pd.merge(y, y_one_month_ago
 
 y.loc[y['store_name'] == 'あきる野店']
 
-# y.dropna(inplace=True)
+y.dropna(inplace=True)
 y.loc[y['order_weekday'] - y['order_weekday_one_month_ago'] > 0, 'y_weekday'] = 1
 y.loc[y['order_weekday'] - y['order_weekday_one_month_ago'] <= 0, 'y_weekday'] = 0
 
