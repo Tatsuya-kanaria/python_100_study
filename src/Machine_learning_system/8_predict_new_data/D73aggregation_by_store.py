@@ -98,8 +98,8 @@ def data_processing(order_data):
 
 store_data = data_processing(target_data)
 store_data.reset_index(drop=False, inplace=True)
-actual = store_data.copy()
+actual_data = store_data.copy()
 
-actual
+actual_data
 
 # %%
