@@ -18,9 +18,9 @@ pred.loc[(pred['score_weekday'] < 0.5) & (
 pred.loc[(pred['score_weekday'] < 0.25), 'オーダー予測 平日'] = '減少大'
 
 pred.loc[pred['score_weekend'] >= 0.75, 'オーダー予測 休日'] = '増加大'
-pred.loc[(pred['score_weekday'] < 0.75) & (
+pred.loc[(pred['score_weekend'] < 0.75) & (
     pred['score_weekend'] >= 0.5), 'オーダー予測 休日'] = '増加'
-pred.loc[(pred['score_weekday'] < 0.5) & (
+pred.loc[(pred['score_weekend'] < 0.5) & (
     pred['score_weekend'] >= 0.25), 'オーダー予測 休日'] = '減少'
 pred.loc[(pred['score_weekend'] < 0.25), 'オーダー予測 休日'] = '減少大'
 
