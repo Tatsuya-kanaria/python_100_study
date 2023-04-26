@@ -36,7 +36,7 @@ report = pd.merge(report, actual_data, on='store_name', how='left')
 report.head(3)
 
 pred_ym = datetime.datetime.strptime(tg_ym, '%Y%m')
-pred_ym = pred_ym + relativedelta(month=1)
+pred_ym = pred_ym + relativedelta(monts=1)
 pred_ym = datetime.datetime.strftime(pred_ym, '%Y%m')
 
 report_name = f'report_pred_{pred_ym}.xlsx'
