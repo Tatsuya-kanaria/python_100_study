@@ -22,7 +22,7 @@ os.makedirs(output_report_dir, exist_ok=True)
 os.makedirs(master_dir, exist_ok=True)
 os.makedirs(model_dir, exist_ok=True)
 
-tg_ym = '202004'
+tg_ym = '202008'
 
 target_file = "tbl_order_" + tg_ym + ".csv"
 m_area_file = 'm_area.csv'
