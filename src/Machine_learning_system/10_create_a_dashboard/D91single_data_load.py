@@ -17,7 +17,8 @@ store_monthly_data = pd.read_csv(
     os.path.join(store_monthly_dir, store_monthly_file))
 ml_base_data = pd.read_csv(os.path.join(ml_base_dir, ml_base_file))
 
-display(store_monthly_data.head(3))
-display(ml_base_data.head(3))
+if __name__ == '__main__':
+    display(store_monthly_data.head(3))
+    display(ml_base_data.head(3))
 
 # %%
