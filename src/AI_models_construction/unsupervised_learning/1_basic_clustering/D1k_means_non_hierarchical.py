@@ -2,7 +2,7 @@
 import pandas as pd
 from sklearn.datasets import load_iris
 import matplotlib.pyplot as plt
-%matplotlib inline
+# %matplotlib inline
 
 import seaborn as sns
 
@@ -14,7 +14,7 @@ iris = load_iris()
 iris.data.shape
 print(iris.target_names)
 
-df_iris = pd.DataFrame(iris.data, columns = iris.feature_names)
+df_iris = pd.DataFrame(iris.data, columns=iris.feature_names)
 df_iris.describe()
 
 df_temp = df_iris.copy()
@@ -34,10 +34,12 @@ cluster_center = pd.DataFrame(model.cluster_centers_)
 cluster_center.columns = cls_data.columns[:4]
 display(cluster_center)
 
-plt.scatter(cls_data["sepal length (cm)"], cls_data["sepal width (cm)"], c=cls_data["cluster"])
+plt.scatter(cls_data["sepal length (cm)"],
+            cls_data["sepal width (cm)"], c=cls_data["cluster"])
 plt.xlabel("sepal length (cm)")
 plt.ylabel("sepal width (cm)")
-plt.scatter(cluster_center["sepal length (cm)"], cluster_center["sepal width (cm)"], marker="*", color="red")
+plt.scatter(cluster_center["sepal length (cm)"],
+            cluster_center["sepal width (cm)"], marker="*", color="red")
 
 display(cls_data.groupby("cluster").mean().round(2))
 
