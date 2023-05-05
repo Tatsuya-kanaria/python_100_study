@@ -14,7 +14,7 @@ for ml_results_dir in ml_results_dirs:
     importance_monthly['dirs'] = ml_results_dir
     importance_all.append(importance_monthly)
 importance_all = pd.concat(importance_all, ignore_index=True)
-importance_all['year_month'] = importance_monthly['dirs'].str.split(
+importance_all['year_month'] = importance_all['dirs'].str.split(
     '_', expand=True)[1]
 
 importance_all.head()
