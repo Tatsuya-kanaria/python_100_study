@@ -20,19 +20,22 @@ df_iris.describe()
 df_temp = df_iris.copy()
 sns.pairplot(df_temp)
 
-model = KMeans(n_clusters=3, random_state=0, init="random")
+model = KMeans(n_clusters=3, random_state=0, init="random", n_init=10)
 cls_data = df_iris.copy()
 model.fit(cls_data)
 
 cluster = model.predict(cls_data)
-print(cluster)
+if __name__ == '__main__':
+    print(cluster)
 
 cls_data["cluster"] = cluster
 sns.pairplot(cls_data, hue="cluster")
 
 cluster_center = pd.DataFrame(model.cluster_centers_)
 cluster_center.columns = cls_data.columns[:4]
-display(cluster_center)
+
+if __name__ == '__main__':
+    display(cluster_center)
 
 plt.scatter(cls_data["sepal length (cm)"],
             cls_data["sepal width (cm)"], c=cls_data["cluster"])
