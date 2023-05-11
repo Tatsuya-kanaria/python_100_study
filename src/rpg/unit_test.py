@@ -2,7 +2,7 @@ import unittest
 from test.support import captured_stdout
 
 
-from RPG import Character, Player, RecoveryAgents, Bom, EnemyManager, Goblin, Orc, Slime, choose_item, reset_game, print_status, main
+from RPG import Character, Player, RecoveryAgents, Bom, EnemyManager, Enemy, Goblin, Orc, Slime, choose_item, reset_game, print_status, main
 
 
 class CharacterTestCase(unittest.TestCase):
@@ -127,6 +127,25 @@ class PlayerTestCase(unittest.TestCase):
 
         self.assertIn(self.recovery_item, self.player.items)
         self.assertNotIn(self.attack_item, self.player.items)
+
+
+class EnemyTestCase(unittest.TestCase):
+    def setUp(self):
+        # test の前準備をする
+        self.player = Player("勇者", 100, 20, 10)
+        self.enemy = Enemy(
+            name="ゴブリン",
+            health=30,
+            mp=5,
+            attack_damage=8,
+            exp_reward=15)
+
+    def tearDown(self):
+        # テストの後始末を行う
+        self.player = None
+
+    def test_enemy_exp_rewards(self):
+        self.assertEqual(self.enemy.exp_reward, 15)
 
 
 if __name__ == '__main__':

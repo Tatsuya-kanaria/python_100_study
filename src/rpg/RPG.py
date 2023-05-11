@@ -56,11 +56,6 @@ class Enemy(Character):
         super().__init__(name, health, mp,  attack_damage)
         self.exp_reward = exp_reward
 
-    def attack(self, target):
-        damage = random.randint(1, self.attack_damage)
-        target.health -= damage
-        print(f"{self.name}の攻撃！ {target.name}に{damage}のダメージ！")
-
 
 class Goblin(Enemy):
     def __init__(self):
