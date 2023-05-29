@@ -19,8 +19,8 @@ X_norm = sc.fit_transform(X)
 x = X_norm[:, 0]
 y = X_norm[:, 1]
 
-fig = plt.figure(figsize=(10, 6))
-ax1 = fig.add_subplot(2, 1, 1)
+fig = plt.figure(figsize=(10, 10))
+ax1 = fig.add_subplot(3, 1, 1)
 ax1.scatter(x, y)
 
 distortions = []
@@ -34,7 +34,7 @@ for i in range(1, 11):
     km.fit(X)
     distortions.append(km.inertia_)
 
-ax2 = fig.add_subplot(2, 1, 2)
+ax2 = fig.add_subplot(3, 1, 2)
 ax2.plot(range(1, 11), distortions, marker="o")
 plt.xticks(range(1, 11))
 ax2.set_xlabel("Number of clusters")
@@ -47,9 +47,9 @@ km = KMeans(
     random_state=0
 )
 z_km = km.fit(X_norm)
-plt.figure(figsize=(10, 3))
-plt.scatter(x, y, c=z_km.labels_)
-plt.scatter(z_km.cluster_centers_[:, 0], z_km.cluster_centers_[
+ax3 = fig.add_subplot(3, 1, 3)
+ax3.scatter(x, y, c=z_km.labels_)
+ax3.scatter(z_km.cluster_centers_[:, 0], z_km.cluster_centers_[
             :, 1], s=250, marker="*", c="red")
 
 plt.show
