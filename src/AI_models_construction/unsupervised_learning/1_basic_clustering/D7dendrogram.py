@@ -1,6 +1,7 @@
 # %%
 from scipy.cluster.hierarchy import dendrogram, fcluster
 import matplotlib.pyplot as plt
+import numpy as np
 
 from D6hierarchical_clustering import Z
 
