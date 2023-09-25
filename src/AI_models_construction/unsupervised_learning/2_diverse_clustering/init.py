@@ -42,3 +42,8 @@ for k in range(len(xm_i._xmeans__clusters)):
 gmm = mixture.GaussianMixture(n_components=3, covariance_type="full")
 z_gmm = gmm.fit(X_norm)
 z_gmm = z_gmm.predict(X_norm)
+
+# VBGMM
+vbgmm = mixture.BayesianGaussianMixture(n_components=10, random_state=0)
+vbgmm = vbgmm.fit(X_norm)
+labels_vbgmm = vbgmm.predict(X_norm)
