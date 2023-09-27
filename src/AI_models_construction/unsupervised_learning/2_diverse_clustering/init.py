@@ -47,3 +47,7 @@ z_gmm = z_gmm.predict(X_norm)
 vbgmm = mixture.BayesianGaussianMixture(n_components=10, random_state=0)
 vbgmm = vbgmm.fit(X_norm)
 labels_vbgmm = vbgmm.predict(X_norm)
+
+# MiniBatchKMeans
+minikm = cluster.MiniBatchKMeans(n_clusters=3, batch_size=100)
+z_minikm = minikm.fit(X_norm)
